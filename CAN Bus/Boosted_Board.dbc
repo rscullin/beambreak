@@ -32,7 +32,12 @@ NS_ :
     SG_MUL_VAL_
 
 BS_: 
-BU_: SR_Battery LR_Battery SR_ESC 
+BU_: SR_Battery LR_Battery SR_ESC
+BO_ 190311680 Battery_Information_00: 8 SR_Battery
+   SG_ Serial_Major : 0|8@1+ (1,0) [0|0] "" SR_Battery
+   SG_ Serial_Minor : 8|8@1+ (1,0) [0|0] "" SR_Battery
+   SG_ Serial_Rev : 16|8@1+ (1,0) [0|0] "" SR_Battery
+
 BO_ 190311681 Battery_Information_01: 8 SR_Battery
    SG_ Serial : 0|32@1+ (1,0) [0|0] "" SR_Battery
 
