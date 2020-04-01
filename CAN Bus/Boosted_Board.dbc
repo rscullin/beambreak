@@ -32,14 +32,14 @@ NS_ :
     SG_MUL_VAL_
 
 BS_: 
-BU_: SR_Battery LR_Battery SR_ESC
+BU_: SR_Battery LR_Battery SR_ESC 
 BO_ 190311680 Battery_Information_00: 8 SR_Battery
    SG_ Serial_Major : 0|8@1+ (1,0) [0|0] "" SR_Battery
    SG_ Serial_Minor : 8|8@1+ (1,0) [0|0] "" SR_Battery
    SG_ Serial_Rev : 16|8@1+ (1,0) [0|0] "" SR_Battery
 
 BO_ 190311681 Battery_Information_01: 8 SR_Battery
-   SG_ Serial : 0|32@1+ (1,0) [0|0] "" SR_Battery
+   SG_ SR_Battery_Serial : 0|32@1+ (1,0) [0|0] "" SR_Battery
 
 BO_ 190311700 Battery_Information_14: 8 SR_Battery
    SG_ Battery_Charge : 32|8@1+ (1,0) [0|0] "%" SR_Battery
@@ -48,6 +48,7 @@ BO_ 190311695 ESC_Info_0F: 8 SR_ESC
    SG_ ESC_Version_Major : 0|8@1+ (1,0) [0|0] "" SR_ESC
    SG_ ESC_Version_Minor : 8|8@1+ (1,0) [0|0] "" SR_ESC
    SG_ ESC_Version_Point : 16|8@1+ (1,0) [0|0] "" SR_ESC
+   SG_ ESC_Serial : 32|32@1+ (1,0) [0|0] "" SR_ESC
 
 BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
 BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
