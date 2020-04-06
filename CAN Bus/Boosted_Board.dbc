@@ -36,21 +36,38 @@ BS_:
 BU_: SR_Battery XR_Battery SR_ESC
 
 
-BO_ 2337795328 Battery_Information_00: 8 SR_Battery
- SG_ Serial_Major : 0|8@1+ (1,0) [0|0] ""  SR_Battery
- SG_ Serial_Minor : 8|8@1+ (1,0) [0|0] ""  SR_Battery
- SG_ Serial_Rev : 16|8@1+ (1,0) [0|0] ""  SR_Battery
+BO_ 2337795522 SR_Battery_Unknown_C2: 8 SR_Battery
 
-BO_ 2337795329 Battery_Information_01: 8 SR_Battery
+BO_ 2337795349 SR_Battery_Unknown_15: 8 SR_Battery
+
+BO_ 2337795347 SR_Battery_Unknown_13: 8 SR_Battery
+
+BO_ 2337795346 SR_Battery_Unknown_12: 8 SR_Battery
+
+BO_ 2337795345 SR_Battery_Unknown_11: 8 SR_Battery
+
+BO_ 2337795344 SR_Battery_Unknown_10: 8 SR_Battery
+
+BO_ 2337795331 SR_Battery_Unknown_03: 8 SR_Battery
+
+BO_ 2337795330 SR_Battery_Unknown_02: 8 SR_Battery
+
+BO_ 2337795328 SR_Battery_Info_00: 3 SR_Battery
+ SG_ Version_Point : 16|8@1+ (1,0) [0|0] ""  SR_Battery
+ SG_ Version_Minor : 8|8@1+ (1,0) [0|0] ""  SR_Battery
+ SG_ Version_Major : 0|8@1+ (1,0) [0|0] ""  SR_Battery
+
+BO_ 2337795329 SR_Battery_Info_01: 8 SR_Battery
  SG_ Serial : 0|32@1+ (1,0) [0|0] ""  SR_Battery
 
-BO_ 2337795348 Battery_Information_14: 8 SR_Battery
+BO_ 2337795348 SR_Battery_Info_14: 8 SR_Battery
  SG_ Battery_Charge : 32|8@1+ (1,0) [0|0] "%"  SR_Battery
 
 BO_ 2337795343 ESC_Info_0F: 8 SR_ESC
- SG_ ESC_Version_Major : 0|8@1+ (1,0) [0|0] ""  SR_ESC
- SG_ ESC_Version_Minor : 8|8@1+ (1,0) [0|0] ""  SR_ESC
- SG_ ESC_Version_Point : 16|8@1+ (1,0) [0|0] ""  SR_ESC
+ SG_ Serial : 32|32@1+ (1,0) [0|0] ""  SR_ESC
+ SG_ Version_Major : 0|8@1+ (1,0) [0|0] ""  SR_ESC
+ SG_ Version_Minor : 8|8@1+ (1,0) [0|0] ""  SR_ESC
+ SG_ Version_Point : 16|8@1+ (1,0) [0|0] ""  SR_ESC
 
 
 
