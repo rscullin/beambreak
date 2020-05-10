@@ -34,11 +34,12 @@ NS_ :
 BS_:
 
 BU_: SR_Battery SR_ESC
-
-
+VAL_TABLE_ BLEPair 14 "Start BLE Pairing" 0 "Normal" ;
+VAL_TABLE_ ESCPowerControl 7 "Idle Power Off" 2 "Power Off" 0 "Run" ;
 VAL_TABLE_ LED_Style 2 "Blue - Solid" 1 "Blue - Breathing" 0 "Green - Solid" ;
 
 
+BO_ 1 README: 8 Vector__XXX
 
 BO_ 2337795522 SR_Battery_Unknown_C2: 8 SR_Battery
 
@@ -51,43 +52,49 @@ BO_ 2337795346 SR_Battery_Unknown_12: 8 SR_Battery
 BO_ 2337795345 SR_Battery_Unknown_11: 8 SR_Battery
 
 BO_ 2337795344 SR_Battery_Info_10: 8 SR_Battery
- SG_ LowestCellVoltage : 0|16@1+ (0.001,0) [0|0] "V" Vector__XXX
- SG_ HigestCellVoltage : 16|16@1+ (0.001,0) [0|0] "V" Vector__XXX
- SG_ PackVoltage : 32|16@1+ (0.001,0) [0|0] "V" Vector__XXX
+ SG_ LowestCellVoltage : 0|16@1+ (0.001,0) [0|0] "V"  SR_ESC
+ SG_ HigestCellVoltage : 16|16@1+ (0.001,0) [0|0] "V"  SR_ESC
+ SG_ PackVoltage : 32|16@1+ (0.001,0) [0|0] "V"  SR_ESC
 
 BO_ 2337795331 SR_Battery_Unknown_03: 8 SR_Battery
 
 BO_ 2337795330 SR_Battery_Unknown_02: 8 SR_Battery
 
 BO_ 2337795328 SR_Battery_Info_00: 3 SR_Battery
- SG_ SR_Version_Major : 0|8@1+ (1,0) [0|0] ""  SR_Battery
- SG_ SR_Version_Minor : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SR_Version_Point : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SR_Version_Major : 0|8@1+ (1,0) [0|0] ""  SR_ESC
+ SG_ SR_Version_Minor : 8|8@1+ (1,0) [0|0] ""  SR_ESC
+ SG_ SR_Version_Point : 16|8@1+ (1,0) [0|0] ""  SR_ESC
 
 BO_ 2337795329 SR_Battery_Info_01: 8 SR_Battery
- SG_ SR_Serial : 0|32@1+ (1,0) [0|0] ""  SR_Battery
+ SG_ SR_Serial : 0|32@1+ (1,0) [0|0] ""  SR_ESC
 
 BO_ 2337795348 SR_Battery_Info_14: 8 SR_Battery
- SG_ Battery_Charge : 32|8@1+ (1,0) [0|0] "%"  SR_Battery
+ SG_ Battery_Charge : 32|8@1+ (1,0) [0|0] "%"  SR_ESC
 
 BO_ 2337795343 ESC_Info_0F: 8 SR_ESC
- SG_ ESC_Serial : 32|32@1+ (1,0) [0|0] ""  SR_ESC
- SG_ ESC_Version_Major : 0|8@1+ (1,0) [0|0] ""  SR_ESC
- SG_ ESC_Version_Minor : 8|8@1+ (1,0) [0|0] ""  SR_ESC
- SG_ ESC_Version_Point : 16|8@1+ (1,0) [0|0] ""  SR_ESC
+ SG_ ESC_Serial : 32|32@1+ (1,0) [0|0] ""  SR_Battery
+ SG_ ESC_Version_Major : 0|8@1+ (1,0) [0|0] ""  SR_Battery
+ SG_ ESC_Version_Minor : 8|8@1+ (1,0) [0|0] ""  SR_Battery
+ SG_ ESC_Version_Point : 16|8@1+ (1,0) [0|0] ""  SR_Battery
 
-BO_ 2337795521 SR_Battery_LED_C1: 8 SR_Battery
- SG_ LED_Duration : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ LED_Style : 32|2@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2337795521 ESC_LED_Control_C1: 8 SR_ESC
+ SG_ LED_Duration : 8|8@1+ (1,0) [0|0] ""  SR_Battery
+ SG_ LED_Style : 32|2@1+ (1,0) [0|0] ""  SR_Battery
 
-BO_ 1 README: 8 Vector__XXX
+BO_ 2337795359 ESC_Pwr_1F: 8 SR_ESC
+ SG_ PowerControl : 0|8@1+ (1,0) [0|0] ""  SR_Battery
+
+BO_ 2337795520 SR_Battery_Button_C0: 8 SR_Battery
+ SG_ ButtonPressCount : 0|4@1+ (1,0) [0|0] ""  SR_ESC
+ SG_ BLEPairControl : 8|4@1+ (1,0) [0|0] ""  SR_ESC
 
 
 
 CM_ BU_ SR_Battery "Short Range Battery";
 CM_ BU_ SR_ESC "ESC to SR Battery";
+CM_ BO_ 1 "See https://github.com/rscullin/beambreak/ for more information.";
 CM_ BO_ 2337795344 "Cell High/Low Voltage and Pack Voltage";
-CM_ SG_ 2337795344 LowestCellVoltage "Lowest Cell Voltage (?)";
+CM_ SG_ 2337795344 LowestCellVoltage "Lowest Cell Voltage";
 CM_ SG_ 2337795344 HigestCellVoltage "Higest Cell Voltage";
 CM_ SG_ 2337795344 PackVoltage "Total Pack Voltage";
 CM_ BO_ 2337795328 "Battery Version";
@@ -95,6 +102,9 @@ CM_ BO_ 2337795329 "Battery Serial";
 CM_ BO_ 2337795348 "Battery SoC";
 CM_ BO_ 2337795343 "ESC Serial and Version";
 CM_ BO_ 2337795521 "Battery Power LED Control (Blue/Green)";
-CM_ BO_ 1 "See https://github.com/rscullin/beambreak/ for more information.";
+CM_ BO_ 2337795359 "ESC Power Control";
+CM_ BO_ 2337795520 "Button Presses and BT Pairing";
 VAL_ 2337795521 LED_Style 2 "Blue - Solid" 1 "Blue - Breathing" 0 "Green - Solid" ;
+VAL_ 2337795359 PowerControl 7 "Idle Power Off" 2 "Power Off" 0 "Run" ;
+VAL_ 2337795520 BLEPairControl 14 "Start BLE Pairing" 0 "Normal" ;
 
