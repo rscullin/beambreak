@@ -1,5 +1,5 @@
 # Boosted Board Reverse Engineering
-BeamBREak is an attempt at REing the various components of Boosted Board's electronics to keep boards running, due to their uncertian future.
+BeamBREak is an attempt at REing the various components of Boosted Board's electronics to keep boards running, due to their uncertain future.
 
 Feel free to raise an issue or send me a message on Twitter [@robertscullin](https://twitter.com/robertscullin) if you have questions or more info.
 

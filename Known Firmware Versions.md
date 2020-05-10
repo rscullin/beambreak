@@ -6,9 +6,9 @@ Firmware updates that I've seen or found sources for. Have a Screenshot/Reddit P
 
 | Version | Release Date | Name / Official Notes                                                                                           | Notes                                     | Source                                                                      |
 | ------- | ------------ | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | --------------------------------------------------------------------------- |
-| 2.7.2   | Late 2020    | **v2.7.2 - Boosted Beams Support**<br>\- Support for Boosted Beams (see BoostedBoards.com)<br>\- bug fixes            | Required for Beams / Accessory Port usage | Self                                                                        |
+| 2.7.2 / 2.7.1 / 2.7.0   | Late 2019    | **v2.7.2 - Boosted Beams Support**<br>\- Support for Boosted Beams (see BoostedBoards.com)<br>\- bug fixes            | Required for Beams / Accessory Port usage | Self, Reddit    
 | 2.1.9   | ~2018        | **Firmware v2.1.9**<br>Board updates for use with extended range battery packs and with connectivity and bug fixes. | Required to support XR Battery                                          | [Tweet](https://twitter.com/bboardsirl/status/969934896214003715/photo/1) |
-| 2.1.8   | ~2018        | **Firmware V2.1.8**                                                                                           |                                           | [Tweet](https://twitter.com/Rodney\_Fletcher/status/956173460186607616)   |
+| 2.1.8   | Early 2018        | **Firmware V2.1.8**                                                                                           |                                           | [Tweet](https://twitter.com/Rodney\_Fletcher/status/956173460186607616)   |
 ## Batteries
 
 
