@@ -6,6 +6,10 @@ This data is available as a [DBC File](SR_Battery.dbc), and is more or less the 
 
 For physical connector information, see the [CAN Bus Readme](Readme.md). Data is sent at 250kbps, with Extended IDs.
 
+## Warning
+This info is provided as-is, with no guarantees or warranties, and is the result of staring at IDs and changing paramaters. You can potentially injure yourself or your board if you emulate a SR battery, as only "good" states have been understood. The ESC relies on the SR Battery to correctly report the SoC, and possibly other values -- if you only ever tell the ESC that the battery is at 50% (for example), it'll happily charge the pack when braking, possibly above a safe level. This information has been collected with my board in pieces on the floor, and not by riding. I don't know what happens if certain values are omitted or changed, and I suggest testing before relying on an emulated SR battery.
+
+
 ## SR Battery Emulation
 It's possible. Python code very shortly.
 
