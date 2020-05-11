@@ -1,7 +1,7 @@
 # Bus 1 - BMS <-> ESC
 
 ## CAN Bus Info
-The CAN Bus runs at 250k baud, with extended message IDs. The `SR_Battery.dbc` file contains mappings that any CAN tool should be able to use to "make sense" of the CAN traffic.
+The CAN Bus runs at 250k baud, with extended message IDs. The [SR_Battery.dbc](SR_Battery.dbc) file contains mappings that any CAN tool should be able to use to "make sense" of the CAN traffic, and [sr\_battery\_emulator.py](sr_battery_emulator.py) is a Proof of Concept SR Battery Emulator that works well enough to satisfy the ESC's internal sanity and safety checks.
 
 ## Physical Connectors
 Boosted uses a [5-Pin Higo L513AM](https://www.higoconnector.com/products/l313am-p-00-ar-1000/LK99K#title) connector, with two (larger) pins for power, and three pins for CAN/connection detection.

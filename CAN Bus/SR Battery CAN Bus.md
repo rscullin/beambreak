@@ -11,7 +11,13 @@ This info is provided as-is, with no guarantees or warranties, and is the result
 
 
 ## SR Battery Emulation
-It's possible. Python code very shortly.
+[sr\_battery\_emulator.py](sr_battery_emulator.py) is a Proof of Concept SR Battery Emulator, that works well enough to get the wheels to spin on the Board. Out of the box, it will emulate a SR battery at 42% SoC, and sends enough messages to satisfy the ESC' internal sanity and safety checks.
+
+I used a SR Battery with the CAN Bus disconnected to provide power while testing. You _can_ use a bench power supply, but be mindful that the motors will regen on coast, and most power supplies won't handle that well. Any power source in the ~35-40V range should be fine.
+
+
+You'll need `python-can` and a supported CAN interface to use it -- see the file for more info on running and configuring it.
+
 
 ## Table of Known SR/ESC Message IDs
 **Note:** "Essential" is from the perspective of "what is needed to make the ESC work". One-shots may not be essential, but they're easy enough to send and mostly figured out.
