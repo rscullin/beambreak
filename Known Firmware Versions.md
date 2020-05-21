@@ -17,6 +17,7 @@ Firmware updates that I've seen or found sources for. Have a Screenshot/Reddit P
 | ------- | ------------ | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
 | 2.5.1   |              | **Firmware v2.5.1 for B2XR**<br>Minor bugfixes and improvements | Changes (improves?) balancing algorithm, per a [Reddit Post](https://old.reddit.com/r/boostedboards/comments/domk54/boosted\_xr\_battery\_not\_charging\_to\_100\_update\_w/) . | Self   |
 | 2.1.5   |              |                                                             |                                                                                                                                                                              | Self   |
+| 2.1.2   |              |                                                             |                                                                                                                                                                              | LightBlue   |
 
 
 ### SR Batteries
