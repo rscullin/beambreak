@@ -36,14 +36,16 @@ To register as the Front Beams, send (hex) `[FE 00 00 00 00 00 37 13]` to `0x103
 Once registered, the ESC will send events based on what has been registered -- if you only register headlights, it won't send brake light commands.
 
 Messages from the ESC for the lights are 8 byte long. The first byte indicates which light the ESC is communicating with. Commands for the front light start with `0x00`, commands for the back light start with `0x01`.
-The second byte of light commands are always `0x04`.
+The second byte of light commands is always `0x04`.
 The third byte indicates the type of the command:
-`0x22`: lights on
-`0x23`: lights off
-`0x62`: enable blinking
-`0x42`: disable blinking
+```
+0x22: lights on
+0x23: lights off
+0x62: enable blinking
+0x42: disable blinking
+```
 
-The fourth byte of the lights on command (`0x22`) contains the brightness value of the lights. Scaling is different for front and back lights. Front lights use the whole byte's range of 0-255, back lights use 0-51 (0x0-0x33) for normal brightness values and 100 (0x64) when breaking.
+The fourth byte of the 'lights on' command (`0x22`) contains the brightness value of the lights. Scaling is different for front and back lights. Front lights use the whole byte's range of 0-255, back lights use 0-51 (0x0-0x33) for normal brightness values and 100 (0x64) when breaking.
 
 So the different commands look like this:
 Beams on/brightness change:
