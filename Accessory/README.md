@@ -20,7 +20,7 @@ The Accessory connector, like the BMS<->ESC communication, uses a CAN bus to com
 
 The ESC will continuously send an increasing counter value to the IDs in the range of `0x1039320N` -- every half a second, a new timestamp will be sent to N+1, until it wraps back around to 0.
 
-To register as the Front Beams, send (hex) `[FE 00 00 00 00 00 37 13]` to `0x10339200`.
+To register as the Front Beams, send (hex) `[FE 00 00 00 00 00 37 13]` to `0x10339200`, to register as the Back Beams, send (hex) `[FE 00 00 00 01 37 13]` to the same address.
 
 ```
 0xFE; // Accessory Init / Registration
@@ -34,6 +34,65 @@ To register as the Front Beams, send (hex) `[FE 00 00 00 00 00 37 13]` to `0x103
 ```
 
 Once registered, the ESC will send events based on what has been registered -- if you only register headlights, it won't send brake light commands.
+
+Messages from the ESC for the lights are 8 byte long. The first byte indicates which light the ESC is communicating with. Commands for the front light start with `0x00`, commands for the back light start with `0x01`.
+The second byte of light commands are always `0x04`.
+The third byte indicates the type of the command:
+`0x22`: lights on
+`0x23`: lights off
+`0x62`: enable blinking
+`0x42`: disable blinking
+
+The fourth byte of the lights on command (`0x22`) contains the brightness value of the lights. Scaling is different for front and back lights. Front lights use the whole byte's range of 0-255, back lights use 0-51 (0x0-0x33) for normal brightness values and 100 (0x64) when breaking.
+
+So the different commands look like this:
+Beams on/brightness change:
+```
+0x00 // front beams, 0x01 for back beams
+0x04 // constant
+0x22 // lights on command
+0xff // brightness value, full brightness front
+0xXX // no usefull information
+0xXX // no usefull information
+0xXX // no usefull information
+0xXX // no usefull information
+```
+
+Beams off:
+```
+0x00 // front beams, 0x01 for back beams
+0x04 // constant
+0x23 // lights on command
+0x00 // brightness value, off
+0xXX // no usefull information
+0xXX // no usefull information
+0xXX // no usefull information
+0xXX // no usefull information
+```
+
+Beams enable blinking:
+```
+0x00 // front beams, 0x01 for back beams
+0x04 // constant
+0x62 // lights on command
+0xXX // no usefull information
+0xXX // no usefull information
+0xXX // no usefull information
+0xXX // no usefull information
+0xXX // no usefull information
+```
+
+Beams disable blinking/:
+```
+0x00 // front beams, 0x01 for back beams
+0x04 // constant
+0x42 // lights on command
+0xXX // no usefull information
+0xXX // no usefull information
+0xXX // no usefull information
+0xXX // no usefull information
+0xXX // no usefull information
+```
 
 Possibly the easiest way to understand this is with a screen capture of [cangaroo](https://github.com/HubertD/cangaroo), a CAN capture program. The capture shows the headlight initialization at `0x10339200`, and the rolling messages sent every half second with the IDs `0x1039320X`. Additionally the Beams were turned on (`0x10393204` and `0x10393205`) and off (`0x1039320B` and `0x1039320C`). The command messages can appear anywhere in the ID range, and parsing the first byte of the messages as well as the length seems to be the best way to parse the message.
 
