@@ -35,7 +35,8 @@ To register as the Front Beams, send (hex) `[FE 00 00 00 00 00 37 13]` to `0x103
 
 Once registered, the ESC will send events based on what has been registered -- if you only register headlights, it won't send brake light commands.
 
-Messages from the ESC for the lights are 8 byte long. The first byte indicates which light the ESC is communicating with. Commands for the front light start with `0x00`, commands for the back light start with `0x01`.
+Messages from the ESC for the lights are 8 byte long. The first byte indicates which light the ESC is communicating with. Commands for the light that registers first start with `0x00`, commands for the light registering second start with `0x01`.
+If you add a small delay to the back lights, they will always register second and receive messages starting with `0x01`.
 The second byte of light commands is always `0x04`.
 The third byte indicates the type of the command:
 ```
@@ -48,6 +49,7 @@ The third byte indicates the type of the command:
 The fourth byte of the 'lights on' command (`0x22`) contains the brightness value of the lights. Scaling is different for front and back lights. Front lights use the whole byte's range of 0-255, back lights use 0-51 (0x0-0x33) for normal brightness values and 100 (0x64) when breaking.
 
 So the different commands look like this:
+
 Beams on/brightness change:
 ```
 0x00 // front beams, 0x01 for back beams
@@ -64,7 +66,7 @@ Beams off:
 ```
 0x00 // front beams, 0x01 for back beams
 0x04 // constant
-0x23 // lights on command
+0x23 // lights off command
 0x00 // brightness value, off
 0xXX // no usefull information
 0xXX // no usefull information
@@ -76,7 +78,7 @@ Beams enable blinking:
 ```
 0x00 // front beams, 0x01 for back beams
 0x04 // constant
-0x62 // lights on command
+0x62 // lights blinking command
 0xXX // no usefull information
 0xXX // no usefull information
 0xXX // no usefull information
@@ -88,7 +90,7 @@ Beams disable blinking/:
 ```
 0x00 // front beams, 0x01 for back beams
 0x04 // constant
-0x42 // lights on command
+0x42 // lights stop blinking command
 0xXX // no usefull information
 0xXX // no usefull information
 0xXX // no usefull information
