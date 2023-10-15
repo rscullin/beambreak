@@ -25,4 +25,5 @@ I'm not sure that OTA firmware updates were ever released for SR batteries, or i
 
 | Version | Source |
 | ------- | ------ |
+| 1.6.3   | [willbicks](https://i.imgur.com/mGBtIMU.jpg) |
 | 1.4.1   | Self   |
